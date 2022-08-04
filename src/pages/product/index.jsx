@@ -13,6 +13,7 @@ export default function Shop() {
     const [paginate, setPaginate] = useState()
     const search = useQueryUrl()
     const currentPage = search.get('page') || "1"
+    // console.log(currentPage)
     const { category } = useParams()
     console.log("params category",category)
     useEffect(()=>{

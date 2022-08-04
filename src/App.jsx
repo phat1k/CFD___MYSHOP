@@ -6,6 +6,7 @@ import ProductDetail from "./pages/product/[slug]"
 import Login from "./pages/login"
 import {Provider} from "react-redux"
 import {store} from "./stores"
+import Wishlist from "./pages/profile/"
 // import Header from "./components/Header"
 import {
   BrowserRouter,
@@ -31,6 +32,7 @@ function App() {
             <Route path={PRODUCT_CATEGORY_PATH} element={<Shop />} />
             <Route path={PRODUCT_DETAIL_PATH} element={<ProductDetail />} />
             <Route path={AUTH_PATH} element={<Login />} />
+            <Route path="/profile" element={<Wishlist />} />
             <Route path={ACCOUNT_PATH} element={<AccountLayout />}>
               
             </Route>

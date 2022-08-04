@@ -1,8 +1,19 @@
 import { generatePath, Link } from "react-router-dom"
 import { PRODUCT_DETAIL_PATH } from "../constants/path"
+import profileService from "../services/profile"
 import {currency} from "../utils/currency"
+import {message, Button} from 'antd'
+import 'antd/dist/antd.css';
+
+
 export default function ProductCard({product}) {
-  const { name, real_price, price, images, slug } = product
+  const { name, real_price, price, images, slug, _id } = product
+  const addWishlist = async() => {
+   await profileService.addWishlist(_id)
+    message.success('Đã thêm sản phẩm vào danh sách yêu thích thành công ')
+    console.log("thành công")
+  }
+
     return (
             <div className="col-6 col-md-4">
                 {/* Card */}
@@ -31,7 +42,7 @@ export default function ProductCard({product}) {
                                 </button>
                             </span>
                             <span className="card-action">
-                                <button className="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                                <button className="btn btn-xs btn-circle btn-white-primary" onClick={addWishlist}>
                                     <i className="fe fe-heart" />
                                 </button>
                             </span>

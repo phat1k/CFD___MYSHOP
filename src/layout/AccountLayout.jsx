@@ -64,9 +64,9 @@ export default function AccountLayout() {
                     <a className="list-group-item list-group-item-action dropright-toggle " href="account-orders.html">
                       Orders
                     </a>
-                    <a className="list-group-item list-group-item-action dropright-toggle " href="account-wishlist.html">
+                    <Link className="list-group-item list-group-item-action dropright-toggle " to={'/profile'}>
                       Widhlist
-                    </a>
+                    </Link>
                     <a className="list-group-item list-group-item-action dropright-toggle active" href="account-personal-info.html">
                       Personal Info
                     </a>
