@@ -22,7 +22,7 @@ const thunkk = store => next => action =>{
         action(store.dispatch)
         return
     }
-    // next(action)
+    next(action)
 }
 // const store = createStore(
 //     reducer,
@@ -30,7 +30,7 @@ const thunkk = store => next => action =>{
 
 // )
 export let store = createStore(combineReducers({
-        OpenReducer: OpenCardReducer,
+        OpenRe: OpenCardReducer,
         Auth: authReducer,
         UserRe: userReducer
     }),

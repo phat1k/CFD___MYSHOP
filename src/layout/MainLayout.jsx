@@ -10,6 +10,7 @@ import {
     Link,
     Outlet,
   } from 'react-router-dom'
+import SearchModal from '../components/SearchModal'
 
 export default function MainLayout() {
     return (
@@ -17,6 +18,7 @@ export default function MainLayout() {
             <Header/>
             <Outlet/>
             <Footer/>
+            <SearchModal/>
         </>
     )
 }

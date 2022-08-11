@@ -1,7 +1,14 @@
 import React from 'react'
 import { ACCOUNT_PATH } from '../constants/path'
 import {Link } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+
 export default function Header() {
+  const dispatch = useDispatch()
+  const _openSearchModal = (ev) => { 
+    ev.preventDefault()
+    dispatch({type:"OPEN_CARD"})
+   }
     return (
         <div>
             <div className="navbar navbar-topbar navbar-expand-xl navbar-light bg-light">
@@ -537,7 +544,7 @@ export default function Header() {
               {/* Nav */}
               <ul className="navbar-nav flex-row">
                 <li className="nav-item">
-                  <a className="nav-link" data-toggle="modal" href="#modalSearch">
+                  <a className="nav-link" data-toggle="modal" onClick={_openSearchModal}>
                     <i className="fe fe-search" />
                   </a>
                 </li>

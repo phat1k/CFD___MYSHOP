@@ -12,12 +12,19 @@ export default function Shop() {
     const [products, setProducts] = useState()
     const [paginate, setPaginate] = useState()
     const search = useQueryUrl()
-    const currentPage = search.get('page') || "1"
+    const currentPage =  parseInt(search.get('page') || "1")
+    const q = search.get('q') 
     // console.log(currentPage)
     const { category } = useParams()
+
     console.log("params category",category)
+    console.log("qqqqqqqqq",q)
+
+
     useEffect(()=>{
-        productService.getProduct(`?page=${currentPage}${category ? `&categories=${category}`: ''}`)
+        productService.getProduct(`?page=${currentPage}
+        ${category ? `&categories=${category}`: ''}
+        ${q ? `&name=${q}`: ''}`)
         .then(res=>{
             // console.log(`res`, res)
             setProducts(res.data)
@@ -28,7 +35,7 @@ export default function Shop() {
         // .then(res=>{
         //     console.log(`res`, res)
         // })
-    },[currentPage, category])
+    },[currentPage, category, q])
    
  
     return (
@@ -169,6 +176,7 @@ export default function Shop() {
                                     </div>
                                 </div>
                                 {/* Products */}
+                                {q && <p>kết quả tiềm kiếm `{q}`</p>}
                                 <div className="row">
                                     
                                     {products && products.map(e => <ProductsCard key={e.id} product={e}/>)}

@@ -3,7 +3,7 @@ import { PRODUCT_DETAIL_PATH } from "../constants/path"
 import profileService from "../services/profile"
 import {currency} from "../utils/currency"
 import {message, Button} from 'antd'
-import 'antd/dist/antd.css';
+
 
 
 export default function ProductCard({product}) {
